@@ -1,2 +1,2 @@
-idf_component_register(SRCS "scandic-ultimate.c"
+idf_component_register(SRCS "main.c" "utils.c" "system.c" "apps.c"
                     INCLUDE_DIRS ".")
