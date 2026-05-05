@@ -18,16 +18,16 @@
 
 #define TAG "Scandic"
 
-#define PIN_NUM_MOSI 9
-#define PIN_NUM_CLK 10
-#define PIN_NUM_CS 5
-#define PIN_NUM_DC 7
-#define PIN_NUM_RST 6
-#define PIN_NUM_BCKL 21
+#define PIN_NUM_MOSI 7
+#define PIN_NUM_CLK 6
+#define PIN_NUM_CS 21
+#define PIN_NUM_DC 9
+#define PIN_NUM_RST 10
+#define PIN_NUM_BCKL 5
 #define ADCCHAN1 ADC_CHANNEL_1
 #define ADCCHAN2 ADC_CHANNEL_2
-#define potscale 28.75f
-
+#define potscale2 28.0f
+#define potscale1 15.0f
 
 static bool adc_calibration_init(adc_unit_t unit, adc_channel_t channel, adc_atten_t atten, adc_cali_handle_t *out_handle);
 static void adc_calibration_deinit(adc_cali_handle_t handle);
@@ -228,8 +228,8 @@ ESP_LOGI(TAG, "ADC%d Channel[%d] Raw Data: %d", ADC_UNIT_1 + 1, ADCCHAN2, adc_ra
  ESP_LOGI(TAG, "ADC%d Channel[%d] Cali Voltage: %d mV", ADC_UNIT_1 + 1, ADCCHAN2, pvals[1]);
                            }
 else{pvals[1]=adc_raw[1];}
-fp=(int)(float)(pvals[0]/potscale);
-sp=(int)(float)(pvals[1]/potscale);
+fp=(int)(float)(pvals[0]/potscale1);
+sp=(int)(float)(pvals[1]/potscale2);
 
                    }
 
