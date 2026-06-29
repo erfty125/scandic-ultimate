@@ -166,9 +166,10 @@ void displvglinit(){
     // LCD config
     esp_lcd_panel_dev_config_t panel_config = {
         .reset_gpio_num = PIN_NUM_RST,
-        .color_space = ESP_LCD_COLOR_SPACE_RGB, // actually it's RBG, i couldn't get it working correctly, regardless of this and esp_lcd_panel_invert_>
+	.rgb_ele_order = LCD_RGB_ELEMENT_ORDER_RGB,
         .bits_per_pixel = 16,
     };
+
     ESP_ERROR_CHECK(esp_lcd_new_panel_st7789(io_handle, &panel_config, &panel_handle));
     ESP_ERROR_CHECK(esp_lcd_panel_reset(panel_handle));
     ESP_ERROR_CHECK(esp_lcd_panel_init(panel_handle));
