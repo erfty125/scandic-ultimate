@@ -1,4 +1,9 @@
+
+
+extern lv_obj_t *appcanvas;
+
 void initapps();
+void initcanvas();
 
 #define appscount 3
 

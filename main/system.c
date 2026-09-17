@@ -173,9 +173,9 @@ void displvglinit(){
     ESP_ERROR_CHECK(esp_lcd_new_panel_st7789(io_handle, &panel_config, &panel_handle));
     ESP_ERROR_CHECK(esp_lcd_panel_reset(panel_handle));
     ESP_ERROR_CHECK(esp_lcd_panel_init(panel_handle));
-    ESP_ERROR_CHECK(esp_lcd_panel_invert_color(panel_handle, false)); // true = black background, white foreground, false = other way around
+    ESP_ERROR_CHECK(esp_lcd_panel_invert_color(panel_handle,true)); // true = black background, white foreground, false = other way around
     ESP_ERROR_CHECK(esp_lcd_panel_mirror(panel_handle, false, true));
-    ESP_ERROR_CHECK(esp_lcd_panel_swap_xy(panel_handle, true));
+    ESP_ERROR_CHECK(esp_lcd_panel_swap_xy(panel_handle, false));
     ESP_ERROR_CHECK(esp_lcd_panel_set_gap(panel_handle, LCD_X_OFFSET, LCD_Y_OFFSET));
     ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(panel_handle, true));
 
@@ -242,6 +242,7 @@ void systeminit(){
 displvglinit();
 initpot();
 initbars();
+initcanvas();
 initapps();
                  }
 

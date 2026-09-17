@@ -8,29 +8,21 @@
 #include "lvgl.h"
 #include "apps.h"
 #include "system.h"
-#include "stdbool.h"
-#include "utils.h"
+
+
 
 lv_obj_t *label;
-//lv_obj_t *label2ahh;
+//lv_obj_t *label2;
 //lv_obj_t *label3;
 lv_obj_t *bar1;
 lv_obj_t *bar2;
 lv_obj_t *appcanvas;
+lv_layer_t *applayer;
+
 lv_style_t style_bg;
 lv_style_t style_indic;
 
-const int ssx=160;
-const int ssy=120;
-
 void initapps(){
-gsx=ssx;
-gsy=ssy;
-scalefactor=1;
-scx=80;
-scy=60;
-gcx=scx;
-gcy=scy;
 iapp[0]();
                }
 
@@ -49,6 +41,7 @@ lv_obj_set_size(appcanvas, 160, 120);
 lv_canvas_fill_bg(appcanvas, lv_palette_main(LV_PALETTE_BLUE), LV_OPA_COVER);
 
 lv_obj_align(appcanvas,LV_ALIGN_TOP_MID,0,0);
+
 
                  }
 
@@ -109,30 +102,22 @@ lv_label_set_text(label3,sbuf);
 */
                  }
 
-void ifgam();
-void ufgam();
-void dfgam();
- 
-
-
 
 void ia1(){
-/*label=NULL;
+applayer=NULL;
+lv_canvas_init_layer(appcanvas, applayer);
+label=NULL;
 label=lv_label_create(lv_screen_active());
 lv_obj_set_pos(label, 20, 20);
 lv_label_set_text(label, "app1");
-*/
-	ifgam();
-}
+          }
 
 void ua1(){
-ufgam();
-		}
+          }
 
 void da1(){
-//lv_obj_del(label);
-dfgam();
-}
+lv_obj_del(label);
+          }
 
 
 
